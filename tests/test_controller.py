@@ -80,6 +80,23 @@ class TestAppController(unittest.TestCase):
         # Zoom should NOT be reset
         mock_slot.assert_not_called()
 
+    def test_preview_loaded_updates_state_and_emits_signal(self):
+        """Successful preview loads should publish dimensions before rendering starts."""
+        mock_slot = MagicMock()
+        self.controller.preview_loaded.connect(mock_slot)
+        self.controller.request_render = MagicMock()
+
+        raw = object()
+        dims = (1234, 5678)
+
+        self.controller._on_preview_loaded("dummy.dng", raw, dims)
+
+        self.assertIs(self.controller.state.preview_raw, raw)
+        self.assertEqual(self.controller.state.original_res, dims)
+        self.assertEqual(self.controller.state.current_file_path, "dummy.dng")
+        mock_slot.assert_called_once_with()
+        self.controller.request_render.assert_called_once_with()
+
 
 if __name__ == "__main__":
     unittest.main()

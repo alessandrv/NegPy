@@ -94,7 +94,9 @@ class ShortcutsOverlay(QDialog):
 
         return left_column, right_column
 
-    def _add_category_column(self, parent_layout: QHBoxLayout, grouped_categories: list[tuple[str, list]], bindings: dict[str, str]) -> None:
+    def _add_category_column(
+        self, parent_layout: QHBoxLayout, grouped_categories: list[tuple[str, list]], bindings: dict[str, str]
+    ) -> None:
         column_widget = QWidget()
         column_layout = QVBoxLayout(column_widget)
         column_layout.setContentsMargins(0, 0, 0, 0)

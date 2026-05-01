@@ -184,9 +184,7 @@ class ControlsPanel(QWidget):
         proc.black_point_slider.setToolTip(tooltip_with_shortcut("Black point offset", ["black_point_inc", "black_point_dec"]))
 
         lab.separation_slider.setToolTip(tooltip_with_shortcut("Color separation", ["separation_inc", "separation_dec"]))
-        lab.chroma_denoise_slider.setToolTip(
-            tooltip_with_shortcut("Chroma noise reduction", ["chroma_denoise_inc", "chroma_denoise_dec"])
-        )
+        lab.chroma_denoise_slider.setToolTip(tooltip_with_shortcut("Chroma noise reduction", ["chroma_denoise_inc", "chroma_denoise_dec"]))
         lab.saturation_slider.setToolTip(tooltip_with_shortcut("Saturation", ["saturation_inc", "saturation_dec"]))
         lab.vibrance_slider.setToolTip(tooltip_with_shortcut("Vibrance", ["vibrance_inc", "vibrance_dec"]))
         lab.clahe_slider.setToolTip(tooltip_with_shortcut("Local contrast (CLAHE)", ["clahe_inc", "clahe_dec"]))
@@ -205,9 +203,7 @@ class ControlsPanel(QWidget):
         ton.shadow_str_slider.setToolTip(
             tooltip_with_shortcut("Shadow split-tone strength", ["shadow_strength_inc", "shadow_strength_dec"])
         )
-        ton.highlight_hue_slider.setToolTip(
-            tooltip_with_shortcut("Highlight split-tone hue", ["highlight_hue_inc", "highlight_hue_dec"])
-        )
+        ton.highlight_hue_slider.setToolTip(tooltip_with_shortcut("Highlight split-tone hue", ["highlight_hue_inc", "highlight_hue_dec"]))
         ton.highlight_str_slider.setToolTip(
             tooltip_with_shortcut("Highlight split-tone strength", ["highlight_strength_inc", "highlight_strength_dec"])
         )

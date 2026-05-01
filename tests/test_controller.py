@@ -2,14 +2,14 @@ import sys
 import unittest
 from unittest.mock import MagicMock, patch
 
-from PyQt6.QtCore import QCoreApplication
+from PyQt6.QtWidgets import QApplication
 
 from negpy.desktop.controller import AppController
 from negpy.desktop.session import DesktopSessionManager, AppState
 from negpy.services.rendering.preview_manager import PreviewManager
 
-if not QCoreApplication.instance():
-    _app = QCoreApplication(sys.argv)
+if not QApplication.instance():
+    _app = QApplication(sys.argv)
 
 
 class TestAppController(unittest.TestCase):

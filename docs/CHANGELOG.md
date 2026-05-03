@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.15.1
+
+- Fix: rendering crash on some DNG and TIFF files at extreme D-Range Clip values (`kth out of bounds` error from `np.percentile` on float32 arrays.
+- Fix: NaN/inf pixels in loaded images no longer propagate into normalization bounds.
+- Fix: color cast on some files (cr3, raf) files.
+- Fix: unsupported RAW files now show a clear error in the status bar instead of crashing.
+- Updated rawpy/libraw: fixes loading of Panasonic Lumix .RW2 files from newer camera models.
+
 ## 0.15.0
 
 - Add customizable slider shortcuts for all controls @alessandrv

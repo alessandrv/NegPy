@@ -69,7 +69,7 @@ class GeometrySidebar(BaseSidebar):
     def _connect_signals(self) -> None:
         self.ratio_combo.currentTextChanged.connect(self._on_ratio_changed)
         self.manual_crop_btn.toggled.connect(self._on_manual_crop_toggled)
-        self.reset_crop_btn.clicked.connect(self.controller.apply_auto_crop)
+        self.reset_crop_btn.toggled.connect(self._on_auto_crop_toggled)
 
         self.offset_slider.valueChanged.connect(
             lambda v: self.update_config_section("geometry", render=True, persist=False, readback_metrics=False, autocrop_offset=int(v))
@@ -103,6 +103,12 @@ class GeometrySidebar(BaseSidebar):
 
     def _on_manual_crop_toggled(self, checked: bool) -> None:
         self.controller.set_active_tool(ToolMode.CROP_MANUAL if checked else ToolMode.NONE)
+
+    def _on_auto_crop_toggled(self, checked: bool) -> None:
+        if checked:
+            self.controller.apply_auto_crop()
+        else:
+            self.controller.reset_crop()
 
     def sync_ui(self) -> None:
         conf = self.state.config.geometry

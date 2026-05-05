@@ -111,12 +111,7 @@ def _dark_region_bounds(image: np.ndarray) -> tuple[int, int, int, int] | None:
 
     min_inset_x = int(round(image.shape[1] * 0.03))
     min_inset_y = int(round(image.shape[0] * 0.03))
-    if (
-        left < min_inset_x
-        or top < min_inset_y
-        or (image.shape[1] - right) < min_inset_x
-        or (image.shape[0] - bottom) < min_inset_y
-    ):
+    if left < min_inset_x or top < min_inset_y or (image.shape[1] - right) < min_inset_x or (image.shape[0] - bottom) < min_inset_y:
         return None
 
     return left, top, right, bottom

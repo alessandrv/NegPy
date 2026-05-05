@@ -138,5 +138,6 @@ class TestAppController(unittest.TestCase):
         self.assertEqual(saved_config.geometry.manual_crop_rect, (0.2, 0.3, 0.8, 0.9))
         self.controller.request_render.assert_called_once_with()
 
+
 if __name__ == "__main__":
     unittest.main()
